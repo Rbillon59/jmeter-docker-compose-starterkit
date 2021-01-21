@@ -1,0 +1,44 @@
+2021-01-21 11:14:27,086 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2021-01-21 11:14:27,167 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2021-01-21 11:14:27,168 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: Version 5.2.1
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: java.version=11.0.9.1
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: os.name=Linux
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: os.arch=amd64
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: os.version=5.8.0-36-generic
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: file.encoding=UTF-8
+2021-01-21 11:14:27,169 INFO o.a.j.JMeter: java.awt.headless=null
+2021-01-21 11:14:27,170 INFO o.a.j.JMeter: Max memory     =1073741824
+2021-01-21 11:14:27,170 INFO o.a.j.JMeter: Available Processors =6
+2021-01-21 11:14:27,198 INFO o.a.j.JMeter: Default Locale=English (EN)
+2021-01-21 11:14:27,199 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2021-01-21 11:14:27,199 INFO o.a.j.JMeter: JMeterHome=/home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/apache-jmeter-5.2.1
+2021-01-21 11:14:27,199 INFO o.a.j.JMeter: user.dir  =/home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/apache-jmeter-5.2.1/bin
+2021-01-21 11:14:27,199 INFO o.a.j.JMeter: PWD       =/home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/apache-jmeter-5.2.1/bin
+2021-01-21 11:14:27,199 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: ubuntu FullName: ubuntu
+2021-01-21 11:14:28,017 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2021-01-21 11:14:28,083 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2021-01-21 11:14:28,083 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2021-01-21 11:14:28,209 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2021-01-21 11:14:29,280 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=linux-74df54383135721c5b2feab4985efc50-gui
+2021-01-21 11:14:31,369 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-01-21 11:14:31,370 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-01-21 11:14:31,370 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-01-21 11:14:31,370 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-01-21 11:14:31,370 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2021-01-21 11:14:31,370 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2021-01-21 11:14:31,528 INFO o.j.r.PluginManager: Plugins Status: [jpgc-casutg=2.9, jpgc-prmctl=0.4, jpgc-plugins-manager=plugin-manager, jpgc-plancheck=2.4, jpgc-csvars=0.1, jmeter-core=5.2.1, jmeter-ftp=5.2.1, jmeter-http=5.2.1, jmeter-jdbc=5.2.1, jmeter-jms=5.2.1, jmeter-junit=5.2.1, jmeter-java=5.2.1, jmeter-ldap=5.2.1, jmeter-mail=5.2.1, jmeter-mongodb=5.2.1, jmeter-native=5.2.1, jmeter-tcp=5.2.1, jmeter-components=5.2.1]
+2021-01-21 11:14:31,907 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2021-01-21 11:14:31,908 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/apache-jmeter-5.2.1/bin/proxyserver.jks
+2021-01-21 11:14:32,060 INFO o.a.j.s.FileServer: Default base='/home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/apache-jmeter-5.2.1/bin'
+2021-01-21 11:14:32,340 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2021-01-21 11:14:32,340 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2021-01-21 11:14:32,340 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2021-01-21 11:14:32,340 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2021-01-21 11:14:32,367 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2021-01-21 11:15:39,914 INFO o.a.j.s.FileServer: Set new base='/home/rbillon/workspace/acdc-perf--docker-jmeter-starterkit/scenario'
+2021-01-21 11:15:40,063 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2021-01-21 11:15:40,068 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2021-01-21 11:15:40,070 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8

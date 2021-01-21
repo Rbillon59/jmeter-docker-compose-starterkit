@@ -1,0 +1,71 @@
+version: "2"
+services:
+  jmeter-master:
+    build: .
+    container_name: jmeter-master
+    links:
+      - influxdb
+    env_file:
+      - .env
+    environment:
+      - JMX=${JMX}
+      - XMX=256m
+      - XMS=256m
+      - host=${host}
+      - port=${port}
+      - protocol=${protocol}
+      - threads=${threads}
+      - duration=${duration}
+      - rampup=${rampup}
+      - nbInjector=${nbInjector}
+    volumes:
+      - ./scenario:/scenario
+      - ./data:/data
+      - ./log:/opt/jmeter/logs
+      - ./report:/opt/jmeter/results
+      - ./log:/temp/
+  jmeter-slave:
+    build: .
+    links:
+      - influxdb
+    env_file:
+      - .env
+    environment:
+      - JMX=${JMX}
+      - XMX=${XMX}
+      - XMS=${XMS}
+      - host=${host}
+      - port=${port}
+      - protocol=${protocol}
+      - threads=${threads}
+      - duration=${duration}
+      - rampup=${rampup}
+      - SLAVE=1
+      - nbInjector=${nbInjector}
+    volumes:
+      - ./scenario:/scenario
+      - ./data:/data
+      - ./log:/opt/jmeter/logs
+  influxdb:
+    image: influxdb:1.7.4
+    container_name: influxdb
+    ports:
+      - "8086"
+    env_file:
+      - ./influx-grafana/env.influxdb
+    volumes:
+    - ./influx-grafana/influx-data:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "30000:3000"
+    env_file:
+      - ./influx-grafana/env.grafana
+    links:
+      - influxdb
+    volumes:
+      - ./influx-grafana/grafana/provisioning/:/etc/grafana/provisioning/
+      - ./influx-grafana/grafana/dashboards/:/var/lib/grafana/dashboards/
+

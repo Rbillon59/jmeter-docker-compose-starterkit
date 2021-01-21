@@ -1,0 +1,5 @@
+report/
+log/
+data/split
+apache-*/backup
+influx-grafana/influx-data/
