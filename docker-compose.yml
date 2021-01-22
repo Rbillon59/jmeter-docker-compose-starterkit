@@ -24,6 +24,8 @@ services:
       - ./log:/opt/jmeter/logs
       - ./report:/opt/jmeter/results
       - ./log:/temp/
+    depends_on: 
+      - jmeter-slave
   jmeter-slave:
     build: .
     links:
