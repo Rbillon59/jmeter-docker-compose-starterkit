@@ -49,7 +49,7 @@ Tips :
 
 ## Options
 
-Options can be set in the *docker-compose.yml* file
+Options can be set in the .env file or *docker-compose.yml* file directly
 
 *JMX* required : Your jmx filename  
 *XMX* optional : Set the java heap (default 1g)  
