@@ -1,5 +1,6 @@
 report/
 log/
 data/split
-apache-*/backup
+apache-*/backups
 influx-grafana/influx-data/
+jmeter.log

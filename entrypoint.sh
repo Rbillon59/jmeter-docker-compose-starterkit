@@ -61,10 +61,8 @@ export JVM_ARGS
 CSV=$(find ./data -maxdepth 1 -type f -name "*.csv")
 
 if [[ -n "${CSV}" ]]; then
-    echo "Found csv dataset to split"
-
     if [[ "${SLAVE}" -eq 1 ]]; then
-        sleep 5
+        sleep $((2 * nbInjector))
 
         IP=$(hostname -i)
 
@@ -79,6 +77,8 @@ if [[ -n "${CSV}" ]]; then
         ls -ltra /opt/jmeter/bin/*.csv
 
     else
+
+        echo "Found csv dataset to split"
         echo "Controller dataset management starting"
 
         # Dataset splitting
@@ -152,7 +152,7 @@ else
 
     echo "Starting JMeter on controller"
 
-    sleep 10
+    sleep $((2 * nbInjector))
 
     printf -v SLAVE_IP_LIST '%s,' "${HOST_IP_LIST[@]}"
     LOG_FILE="${LOGS_DIR}/jmeter-master-${JMX}-${NOW}.log"
