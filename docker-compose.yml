@@ -1,7 +1,7 @@
 version: "2"
 services:
   jmeter-master:
-    build: .
+    image : rbillon59/jmeter:latest
     container_name: jmeter-master
     links:
       - influxdb
@@ -27,7 +27,7 @@ services:
     depends_on: 
       - jmeter-slave
   jmeter-slave:
-    build: .
+    image: rbillon59/jmeter:latest
     links:
       - influxdb
     env_file:
