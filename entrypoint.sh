@@ -60,6 +60,28 @@ export JVM_ARGS
 
 CSV=$(find ./data -maxdepth 1 -type f -name "*.csv")
 
+if [[ -z "${SLAVE}" ]]; then
+    # Building host list
+        START=1
+        END=${nbInjector}
+        i=${START}
+        HOST_LIST=()
+
+        while [[ ${i} -le ${END} ]]; do
+            HOST_LIST+=("jmeter_jmeter-slave_${i}")
+            i=$((i + 1))
+        done
+
+        echo "Injector hostname list : ${HOST_LIST[@]}"
+
+        # Building IP list of slaves
+        for HOST in "${HOST_LIST[@]}"; do
+            HOST_IP_LIST+=( "$(getent hosts "${HOST}" | awk -F" " '{print $1}')" )
+        done
+
+        echo "Injectors IP list : ${HOST_IP_LIST[@]}"
+fi
+
 if [[ -n "${CSV}" ]]; then
     if [[ "${SLAVE}" -eq 1 ]]; then
         sleep $((2 * nbInjector))
@@ -83,26 +105,6 @@ if [[ -n "${CSV}" ]]; then
 
         # Dataset splitting
         mkdir -p /data/split
-
-        # Building host list
-        START=1
-        END=${nbInjector}
-        i=${START}
-        HOST_LIST=()
-
-        while [[ ${i} -le ${END} ]]; do
-            HOST_LIST+=("jmeter_jmeter-slave_${i}")
-            i=$((i + 1))
-        done
-
-        echo "Injector hostname list : ${HOST_LIST[@]}"
-
-        # Building IP list of slaves
-        for HOST in "${HOST_LIST[@]}"; do
-            HOST_IP_LIST+=( "$(getent hosts "${HOST}" | awk -F" " '{print $1}')" )
-        done
-
-        echo "Injectors IP list : ${HOST_IP_LIST[@]}"
         
         START=0
         END=$((nbInjector -1))
