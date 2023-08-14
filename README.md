@@ -5,13 +5,9 @@
 The JMeter image used is the <https://hub.docker.com/r/rbillon59/jmeter-k8s-base>
 Each tag of that Docker image is a JMeter version
 
-to use a specific version, just change the tag in the docker-compose file. like
+To use a specific version, just change the JMETER_VERSION env var in the `docker-compose.yaml` file
 
-```yaml
-    image: rbillon59/jmeter-k8s-base:5.4.1
-```
-
-These images are based on openjdk 16 and are compatible for x86 and arm64 architectures
+These images are based on openjdk 16 and are compatible for x86_64 and arm64 architectures
 
 ## How to use it
 
