@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -109,6 +109,10 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="sample_module" enabled="true">
+          <stringProp name="IncludeController.includepath">sample_module.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
         <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="InfluxDb Listener" enabled="true">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -163,6 +167,18 @@
         </BackendListener>
         <hashTree/>
       </hashTree>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding">UTF-8</stringProp>
+        <stringProp name="filename">dataset.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">user,password</stringProp>
+      </CSVDataSet>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>

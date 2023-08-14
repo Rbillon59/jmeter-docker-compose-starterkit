@@ -7,24 +7,12 @@ services:
         - JMETER_VERSION=5.4.1
     container_name: jmeter-master
     user: 0:0
+    environment: &common-env
+      JMX_FOLDER: ${JMX_FOLDER}
     links: &common-links
       - influxdb
-    env_file:
-      - .env
-    environment: &common-env
-      JMX: ${JMX}
-      XMX: 256m
-      XMS: 256m
-      host: ${host}
-      port: ${port}
-      protocol: ${protocol}
-      threads: ${threads}
-      duration: ${duration}
-      rampup: ${rampup}
-      nbInjector: ${nbInjector}
     volumes: &common-volumes
       - ./scenario:/scenario
-      - ./data:/opt/jmeter/apache-jmeter/data
       - ./log:/opt/jmeter/apache-jmeter/logs
       - ./report:/opt/jmeter/apache-jmeter/results
       - ./entrypoint.sh:/opt/entrypoint.sh
@@ -34,8 +22,6 @@ services:
     build: *common-build
     links: *common-links
     user: 0:0
-    env_file:
-      - .env
     environment:
       <<: *common-env
       SLAVE: "1"
