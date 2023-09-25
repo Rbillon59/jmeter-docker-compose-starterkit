@@ -1,53 +1,32 @@
-version: "2"
+version: "3"
 services:
   jmeter-master:
-    image : rbillon59/jmeter:latest
+    build: &common-build
+      context: .
+      args:
+        - JMETER_VERSION=5.4.1
     container_name: jmeter-master
-    links:
+    user: 0:0
+    environment: &common-env
+      JMX_FOLDER: ${JMX_FOLDER}
+    links: &common-links
       - influxdb
-    env_file:
-      - .env
-    environment:
-      - JMX=${JMX}
-      - XMX=256m
-      - XMS=256m
-      - host=${host}
-      - port=${port}
-      - protocol=${protocol}
-      - threads=${threads}
-      - duration=${duration}
-      - rampup=${rampup}
-      - nbInjector=${nbInjector}
-    volumes:
+    volumes: &common-volumes
       - ./scenario:/scenario
-      - ./data:/data
-      - ./log:/opt/jmeter/logs
-      - ./report:/opt/jmeter/results
-      - ./log:/temp/
+      - ./log:/opt/jmeter/apache-jmeter/logs
+      - ./report:/opt/jmeter/apache-jmeter/results
+      - ./entrypoint.sh:/opt/entrypoint.sh
     depends_on: 
       - jmeter-slave
   jmeter-slave:
-    image: rbillon59/jmeter:latest
-    links:
-      - influxdb
-    env_file:
-      - .env
+    build: *common-build
+    links: *common-links
+    user: 0:0
     environment:
-      - JMX=${JMX}
-      - XMX=${XMX}
-      - XMS=${XMS}
-      - host=${host}
-      - port=${port}
-      - protocol=${protocol}
-      - threads=${threads}
-      - duration=${duration}
-      - rampup=${rampup}
-      - SLAVE=1
-      - nbInjector=${nbInjector}
-    volumes:
-      - ./scenario:/scenario
-      - ./data:/data
-      - ./log:/opt/jmeter/logs
+      <<: *common-env
+      SLAVE: "1"
+    volumes: *common-volumes
+
   influxdb:
     image: influxdb:1.7.4
     container_name: influxdb
@@ -59,7 +38,7 @@ services:
     - ./influx-grafana/influx-data:/var/lib/influxdb
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:10.0.3
     container_name: grafana
     ports:
       - "30000:3000"

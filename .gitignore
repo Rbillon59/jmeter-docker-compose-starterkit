@@ -1,6 +1,4 @@
 report/
 log/
-data/split
-apache-*/backups
 influx-grafana/influx-data/
-jmeter.log
+scenario/data/split
